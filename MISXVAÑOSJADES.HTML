@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación XV Años</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0e0d6;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #8b2d2a;
+            font-size: 3em;
+        }
+        .countdown {
+            font-size: 2em;
+            color: #5c5c5c;
+            margin-top: 20px;
+        }
+        .invitation {
+            background-color: #f7c7c7;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        .invitation img {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #8b2d2a;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #d63b35;
+        }
+        .link {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .link a {
+            color: #8b2d2a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .link a:hover {
+            color: #d63b35;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Estás invitado a mis XV Años!</h1>
+
+    <div class="invitation">
+        <img src="foto.jpg" alt="Foto de la invitación"> <!-- Aquí puedes poner la foto -->
+        <p>Te invito a celebrar este gran día conmigo, ¡el 31 de mayo de 2025!</p>
+        <button class="button">Confirmar Asistencia</button>
+    </div>
+
+    <div class="countdown">
+        <p>Faltan <span id="countdown"></span> para el gran día!</p>
+    </div>
+
+    <div class="link">
+        <p>Para más detalles, visita nuestro <a href="https://www.tusitio.com" target="_blank">sitio web</a> de la fiesta.</p>
+    </div>
+
+    <script>
+        // Contador regresivo
+        var countDownDate = new Date("May 31, 2025 00:00:00").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " 
+            + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "¡Es el gran día!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
